@@ -150,7 +150,7 @@ function generateQRCode() {
   const container = document.getElementById('qr-code');
   container.innerHTML = '';
   const img = document.createElement('img');
-  img.src = 'assets/images/QR.png';
+  img.src = '/FEB14th/assets/images/QR.png';
   img.alt = 'Gift QR Code';
   img.style.width = '100%';
   img.style.height = '100%';
