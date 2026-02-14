@@ -125,31 +125,31 @@ body {
 
 .scene-title { background: linear-gradient(180deg, #4A5568 0%, #2D3748 100%); }
 .scene-casefile {
-  background: var(--paper) url('/assets/images/ROOMF.png') center/cover no-repeat;
+  background: var(--paper) url('../assets/images/ROOMF.png') center/cover no-repeat;
 }
 .scene-quad {
-  background: url('/assets/images/QUADF.png') center/cover no-repeat;
+  background: url('../assets/images/QUADF.png') center/cover no-repeat;
 }
 .scene-library {
-  background: url('/assets/images/LIBRARYF.png') center/cover no-repeat;
+  background: url('../assets/images/LIBRARYF.png') center/cover no-repeat;
 }
 .scene-library.scene-library-books {
-  background-image: url('/assets/images/BOOKSF.png');
+  background-image: url('../assets/images/BOOKSF.png');
 }
 .scene-arena {
-  background: url('/assets/images/CHEELARENAF.png') center/cover no-repeat;
+  background: url('../assets/images/CHEELARENAF.png') center/cover no-repeat;
 }
 .scene-arena.scene-arena-seat {
-  background-image: url('/assets/images/SEATF.png');
+  background-image: url('../assets/images/SEATF.png');
 }
 .scene-cafe {
-  background: url('/assets/images/COFEPLACEF.png') center/cover no-repeat;
+  background: url('../assets/images/COFEPLACEF.png') center/cover no-repeat;
 }
 .scene-river {
-  background: url('/assets/images/RIVERF.png') center/cover no-repeat;
+  background: url('../assets/images/RIVERF.png') center/cover no-repeat;
 }
 .scene-river.scene-river-at-bench {
-  background-image: url('/assets/images/BENCHF.png');
+  background-image: url('../assets/images/BENCHF.png');
 }
 .scene-reveal { background: var(--paper); }
 
