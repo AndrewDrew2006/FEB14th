@@ -1,0 +1,259 @@
+/* Phase 2: CSS Foundation */
+:root {
+  /* Colors — from VISUAL_AMBIENCE.md */
+  --snow: #F5F5F0;
+  --sky: #8B9AAA;
+  --night: #4A5568;
+  --window-glow: #FFE4B5;
+  --paper: #F0E6D3;
+  --valentine: #C45C6A;
+  --gold: #C9A227;
+  --seal: #8B4513;
+  --text-dark: #2D3748;
+  --text-muted: #6B7280;
+
+  /* Typography */
+  --font-pixel: 'Press Start 2P', cursive;
+  --font-body: 'Nunito', sans-serif;
+  --font-size-body: 16px;
+  --font-size-header: 14px;
+  --line-height: 1.5;
+
+  /* Layout */
+  --safe-top: env(safe-area-inset-top, 0);
+  --safe-bottom: env(safe-area-inset-bottom, 0);
+  --max-text-width: 280px;
+
+  /* Timing */
+  --transition-scene: 0.8s;
+  --transition-text: 0.2s;
+  --transition-tap: 0.1s;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { font-size: 16px; -webkit-text-size-adjust: 100%; }
+html, body { position: fixed; width: 100%; }
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-body);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height);
+  color: var(--text-dark);
+  background: var(--night);
+  overflow: hidden;
+  overscroll-behavior: none;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.game-container {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh; /* Dynamic viewport for mobile browser chrome */
+  overflow: hidden;
+  padding-top: var(--safe-top);
+  padding-bottom: var(--safe-bottom);
+  touch-action: manipulation; /* Prevents double-tap zoom on buttons */
+}
+
+.scene-wrapper {
+  position: absolute;
+  inset: 0;
+}
+
+.scene {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-scene) ease;
+}
+
+.scene.active {
+  opacity: 1;
+  pointer-events: auto;
+  z-index: 1;
+}
+
+.title-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+  padding: 24px;
+  text-align: center;
+}
+
+.title-main {
+  font-family: var(--font-pixel);
+  font-size: 10px;
+  color: var(--snow);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.title-sub {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: rgba(245,245,240,0.8);
+  margin-bottom: 32px;
+}
+
+.title-graffiti {
+  font-family: "Permanent Marker", "Sedgwick Ave Display", cursive;
+  font-weight: 400;
+  font-size: clamp(20px, 6vw, 32px);
+  color: #0a0a0a;
+  letter-spacing: 0.04em;
+  transform: rotate(-4deg);
+  text-shadow:
+    3px 3px 0 rgba(255,255,255,0.6),
+    -2px -2px 0 rgba(255,255,255,0.4),
+    0 0 0 2px rgba(255,255,255,0.5),
+    4px 4px 8px rgba(0,0,0,0.5);
+  margin-top: 28px;
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.2;
+}
+
+.scene-title { background: linear-gradient(180deg, #4A5568 0%, #2D3748 100%); }
+.scene-casefile {
+  background: var(--paper) url('/assets/images/ROOMF.png') center/cover no-repeat;
+}
+.scene-quad {
+  background: url('/assets/images/QUADF.png') center/cover no-repeat;
+}
+.scene-library {
+  background: url('/assets/images/LIBRARYF.png') center/cover no-repeat;
+}
+.scene-library.scene-library-books {
+  background-image: url('/assets/images/BOOKSF.png');
+}
+.scene-arena {
+  background: url('/assets/images/CHEELARENAF.png') center/cover no-repeat;
+}
+.scene-arena.scene-arena-seat {
+  background-image: url('/assets/images/SEATF.png');
+}
+.scene-cafe {
+  background: url('/assets/images/COFEPLACEF.png') center/cover no-repeat;
+}
+.scene-river {
+  background: url('/assets/images/RIVERF.png') center/cover no-repeat;
+}
+.scene-river.scene-river-at-bench {
+  background-image: url('/assets/images/BENCHF.png');
+}
+.scene-reveal { background: var(--paper); }
+
+.text-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  padding-bottom: calc(20px + var(--safe-bottom));
+  background: linear-gradient(to top, rgba(45,55,72,0.95) 0%, transparent 100%);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.text-content {
+  max-width: var(--max-text-width);
+  margin: 0 auto 12px;
+  font-size: var(--font-size-body);
+  color: white;
+  text-shadow: 0 1px 1px rgba(0,0,0,0.9), 0 0 2px rgba(0,0,0,0.8);
+  min-height: 80px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+.text-content .header {
+  font-family: var(--font-pixel);
+  font-size: 10px;
+  margin-bottom: 8px;
+  -webkit-font-smoothing: none;
+}
+.text-content .clue { font-style: italic; margin: 12px 0; padding-left: 12px; }
+.text-content .case-note { color: var(--gold); font-size: 14px; }
+
+.tap-prompt {
+  font-family: var(--font-pixel);
+  font-size: 8px;
+  color: rgba(255,255,255,0.8);
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  animation: bounce 0.8s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(2px); }
+}
+
+.scene-title.breathing {
+  animation: breathe 4s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.02); }
+}
+
+.game-container:active .tap-prompt { transform: scale(0.95); }
+
+.snow-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.qr-container {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: var(--paper);
+  z-index: 20;
+}
+
+.qr-container[hidden] { display: none; }
+
+.qr-code {
+  width: 200px;
+  height: 200px;
+  margin-bottom: 16px;
+  padding: 16px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.qr-code img { width: 100%; height: 100%; display: block; }
+
+.qr-label { font-family: var(--font-pixel); font-size: 10px; margin: 0 0 8px; color: var(--text-dark); }
+
+.qr-subtext { font-size: 14px; color: var(--text-muted); margin: 0 0 24px; }
+
+.restart-btn { font-family: var(--font-pixel); font-size: 8px; background: none; border: none; cursor: pointer; color: var(--valentine); }

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#4A5568">
+  <title>The Case of the Secret Admirer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Press+Start+2P&family=Permanent+Marker&family=Sedgwick+Ave+Display&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div id="game-container" class="game-container">
+    <div id="scene-wrapper" class="scene-wrapper">
+      <section id="scene-0" class="scene scene-title" data-scene="0"></section>
+      <section id="scene-1" class="scene scene-casefile" data-scene="1"></section>
+      <section id="scene-2" class="scene scene-quad" data-scene="2"></section>
+      <section id="scene-3" class="scene scene-library" data-scene="3"></section>
+      <section id="scene-4" class="scene scene-arena" data-scene="4"></section>
+      <section id="scene-5" class="scene scene-cafe" data-scene="5"></section>
+      <section id="scene-6" class="scene scene-river" data-scene="6"></section>
+      <section id="scene-7" class="scene scene-reveal" data-scene="7"></section>
+    </div>
+    <div id="text-overlay" class="text-overlay" aria-live="polite">
+      <div id="text-content" class="text-content"></div>
+      <button id="tap-prompt" class="tap-prompt" aria-label="Continue">[ TAP TO CONTINUE ]</button>
+    </div>
+    <canvas id="snow-canvas" class="snow-canvas" aria-hidden="true"></canvas>
+    <div id="qr-container" class="qr-container" hidden>
+      <div id="qr-code" class="qr-code"></div>
+      <p class="qr-label">SCAN TO CLAIM YOUR GIFT</p>
+      <p class="qr-subtext">Маленький подарочек чтобы ты слушала любимые книги пока красишься или собираешься на работу</p>
+      <button id="restart-btn" class="restart-btn">[ TAP TO PLAY AGAIN ]</button>
+    </div>
+  </div>
+  <script src="config.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+  <script src="js/text.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/particles.js"></script>
+  <script src="js/game.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
